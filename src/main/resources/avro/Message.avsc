@@ -2,7 +2,6 @@
   "type": "record",
   "name": "Message",
   "namespace": "com.company",
-  "doc": "",
   "fields": [
     {
       "name": "ts",
@@ -140,12 +139,33 @@
         "null",
         {
           "type": "record",
-          "name": "UserData",
+          "name": "UserInfo",
           "namespace": "com.company",
           "fields": [
             {
+              "name": "fullName",
+              "type": "string",
+              "doc": "Полное имя пользователя"
+            },
+            {
+              "name": "phone",
+              "type": "string",
+              "doc": "Телефон пользователя"
+            },
+            {
+              "name": "city",
+              "type": "string",
+              "doc": "Город пользователя"
+            },
+            {
+              "name": "grade",
+              "type": "string",
+              "doc": "Грейд пользователя"
+            },
+            {
               "name": "timestamp",
-              "type": "long"
+              "type": "long",
+              "doc": "Время обновления информации"
             }
           ]
         }

@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: user-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+    properties:
+      specific.avro.reader: true
+    # Добавить другие настройки, если необходимо
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/your_database
+    username: your_username
+    password: your_password
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+
+logging:
+  level:
+    root: INFO
+    com.company: DEBUG
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+shedlock:
+  mode: default
+  # Примерные настройки, зависит от используемого способа хранения локов 
+
+# Пример конфигурации для взаимодействия с внешним справочным сервисом
+external:
+  users-service:
+    url: http://external-service-url/api/cities
+  dictionary:
+    url: http://dictionary
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
