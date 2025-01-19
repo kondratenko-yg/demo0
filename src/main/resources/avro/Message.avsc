@@ -144,22 +144,6 @@
           "namespace": "com.company",
           "fields": [
             {
-              "name": "fullName",
-              "type": "string"
-            },
-            {
-              "name": "phone",
-              "type": "string"
-            },
-            {
-              "name": "city",
-              "type": "string"
-            },
-            {
-              "name": "grade",
-              "type": "string"
-            },
-            {
               "name": "timestamp",
               "type": "long"
             }
