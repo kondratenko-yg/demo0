@@ -1,7 +1,7 @@
 package com.company.service;
 
-import com.company.dto.UserBusinessDto;
-import com.company.entity.KafkaProblematicMessage;
+import com.company.UserData;
+import com.company.entity.ErrorMessageData;
 import com.company.repository.KafkaProblematicMessageRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ScheduledUserUpdateTask {
 
   private final KafkaProblematicMessageRepository messageRepository;
-  private final UserService userService;
+  private final ProcessService processService;
   private final ObjectMapper objectMapper;
 
   /**
@@ -28,13 +28,13 @@ public class ScheduledUserUpdateTask {
   @SchedulerLock(name = "userUpdateTask", lockAtLeastFor = "PT1M", lockAtMostFor = "PT5M")
   @Transactional
   public void processProblematicMessages() {
-    List<KafkaProblematicMessage> messages = messageRepository.findTopByTimestampWithAttemptsLessThanFive();
-    for (KafkaProblematicMessage msg : messages) {
+    List<ErrorMessageData> messages = messageRepository.findTopByTimestampWithAttemptsLessThanFive();
+    for (ErrorMessageData msg : messages) {
       try {
         // Преобразуем и отправляем обновление пользователя
-        UserBusinessDto userBusinessDto = objectMapper.readValue(msg.getMessage(), UserBusinessDto.class);
+        var userData = objectMapper.readValue(msg.getMessage(), UserData.class);
 
-        userService.updateUser(userBusinessDto);
+        processService.process(userData);
 
         // Удаляем сообщение после успешной обработки
         messageRepository.deleteById(msg.getId());

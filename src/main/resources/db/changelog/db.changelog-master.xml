@@ -6,7 +6,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
   <changeSet id="1" author="your-name">
-    <createTable tableName="kafka_problematic_messages">
+    <createTable tableName="error_message_data">
       <column name="id" type="bigint" autoIncrement="true">
         <constraints primaryKey="true" nullable="false" />
       </column>

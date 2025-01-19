@@ -9,19 +9,18 @@ import java.time.LocalDateTime;
 /**
  * Сущность для представления проблемных сообщений из Kafka.
  */
-@Table("kafka_problematic_messages")
+@Table("error_message_data")
 @Data
-public class KafkaProblematicMessage {
+public class ErrorMessageData {
 
   @Id
   private Long id;
-  private String key;
   private String message;
   private String errorMessage;
-  private LocalDateTime timestamp;
+  private Long timestamp;
   private Integer attemptCount;
 
-  public KafkaProblematicMessage() {
+  public ErrorMessageData() {
     this.attemptCount = 0; // Инициализация количества попыток
   }
 }

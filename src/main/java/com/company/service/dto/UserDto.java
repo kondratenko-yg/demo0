@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserBusinessDto{
+public class UserDto {
   private String fullName;
 
   private String phone;

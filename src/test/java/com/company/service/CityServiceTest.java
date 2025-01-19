@@ -14,6 +14,7 @@ import com.company.dto.RecordDto;
 import com.company.dto.RecordDtoResponse;
 import com.company.dto.RecordsDtoResponse;
 import com.company.exception.CityServiceException;
+import com.company.service.impl.CityServiceImpl;
 import java.util.Collections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ class CityServiceTest {
   private DictionaryClient dictionaryClient;
 
   @InjectMocks
-  private CityService cityService;
+  private CityServiceImpl cityService;
 
   @BeforeEach
   void setup() {
