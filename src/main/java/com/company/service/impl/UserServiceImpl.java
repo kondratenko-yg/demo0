@@ -1,10 +1,10 @@
 package com.company.service.impl;
 
 import com.company.client.UserClient;
-import com.company.dto.UserDto;
 import com.company.dto.UpdateUserRequest;
 import com.company.exception.UserServiceException;
 import com.company.mapper.MessageToUserDtoMapper;
+import com.company.service.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;

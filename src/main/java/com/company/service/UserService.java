@@ -1,6 +1,7 @@
 package com.company.service;
 
-import com.company.dto.UserDto;
+
+import com.company.service.dto.UserDto;
 
 public interface UserService {
   void updateUser(UserDto userDto);

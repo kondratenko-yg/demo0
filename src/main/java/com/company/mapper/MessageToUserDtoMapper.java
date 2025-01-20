@@ -3,7 +3,7 @@ package com.company.mapper;
 import com.company.Message;
 import com.company.UserData;
 import com.company.dto.UpdateUserRequest;
-import com.company.dto.UserDto;
+import com.company.service.dto.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

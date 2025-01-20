@@ -1,11 +1,11 @@
 package com.company.service.impl;
 
 import com.company.UserData;
-import com.company.dto.UserDto;
 import com.company.mapper.MessageToUserDtoMapper;
 import com.company.service.CityService;
 import com.company.service.ProcessService;
 import com.company.service.UserService;
+import com.company.service.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
